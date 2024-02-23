@@ -9,3 +9,4 @@ config.py
 instance
 instance/db.sqlite
 manager.py
+/venv
