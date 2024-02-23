@@ -47,6 +47,8 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from flask_alembic import Alembic
 from datetime import datetime
 import os as system
+import flag
+
 
 new_data = {}
 
