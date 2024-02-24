@@ -47,7 +47,6 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from flask_alembic import Alembic
 from datetime import datetime
 import os as system
-import flag
 
 
 new_data = {}
@@ -102,7 +101,7 @@ def index():
         idx += 1
 
     # Get the Username logged on system.
-    user = system.getlogin()
+    user = "Vagner"
 
     return render_template("index.html", title="Current stock level:", stock=stock, balance=str(balance), user=user)
 
@@ -113,7 +112,7 @@ def purchase():
     stock = load_stock()
     warehouse = db.session.query(Warehoue).all()
 
-    user = system.getlogin()
+    user = "vagner"
     if request.method == "POST":
         form_values = request.form
         new_purchase = {
@@ -169,7 +168,7 @@ def purchase():
 
 @app.route("/sale/", methods=["POST", "GET"])
 def sale():
-    user = system.getlogin()
+    user = "vagner"
     success = False
     balance = load_balance()
     stock = load_stock()
@@ -241,7 +240,7 @@ def sale():
 
 @app.route("/balance/", methods=["POST", "GET"])
 def balance():
-    user = system.getlogin()
+    user = "vagner"
     balance = load_balance()
 
     if request.method == "POST":
@@ -286,7 +285,7 @@ def balance():
 @app.route("/history/", defaults={"line_from": None, "line_to": None})
 @app.route("/history/", methods=["POST", "GET"])
 def history():
-    user = system.getlogin()
+    user = "vagner"
     history = load_history()
     balance = load_balance()
 
@@ -408,7 +407,7 @@ def load_history():
 
 def update_history(transaction, value):
     load_history()
-    user = system.getlogin()
+    user = "vagner"
     print(load_history)
     add_history = (History(
         user=user,
